@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&family=Sarabun:wght@500&display=swap');
+
+:root {
+    --dark: #24242b;
+    --darkest: #14141a;
+    --light: #cfcfcf;
+    --purple: #734dcc;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;  
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+h1 {
+    margin: 20px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark);
+    color: var(--light);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.password-control {
+    width: 625px;
+    display: flex;
+    align-items: center;
+    padding: 20px 20px 0px 20px;
+}
+
+#password {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    padding: left 6px;
+    text-align: center;
+    background-color: var(--darkest);
+}
+
+#copy {
+    width: 20%;
+    height: 50px;
+    border: none;
+    background-color: var(--purple);
+    color: var(--light);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#copy:hover {
+    background-color: #503392;
+}
+
+.options {
+    width: 625px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkboxes {
+    display: flex;
+    border-radius: 7px;
+
+}
+
+.checkbox-control {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+
+.checkbox-control input {
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+
+}
+
+.checkbox-control input:checked {
+    accent-color: var(--purple);
+}
+
+.range-control {
+    width: 100%;
+    padding: 0px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    background-color: var(--light);
+    margin: 10px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--purple);
+}
+
+
+#generate {
+    width: 210px;
+    height: 50px;
+    color: var(--light);
+    background-color: var(--purple);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+#generate:hover {
+    transform: translate(0px, -2px);
+}
