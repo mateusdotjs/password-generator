@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Password Generator</title>
 </head>
 
@@ -14,7 +15,7 @@
         <h1>PASSWORD GENERATOR</h1>
 
         <div class="password-control">
-            <span id="password">Click button to generate</span>
+            <span id="password">Click the 'generate password' button</span>
             <button id="copy">Copy</button>
         </div>
 
@@ -43,6 +44,16 @@
             </div>
         </div>
         <button type="button" id="generate">Generate Password</button>
+        <div class="modal-background" id="modal">
+            <div class="modal">
+                <div class="modal-header">
+                    <i class="fa fa-times" aria-hidden="true" id="close-icon"></i>
+                </div>
+                <div class="modal-message">
+                    <p>Check at least one checkbox!</p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

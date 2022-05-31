@@ -5,6 +5,8 @@
     --darkest: #14141a;
     --light: #cfcfcf;
     --purple: #734dcc;
+    --red: #b63434;
+    --green: #40ca34;
 }
 
 * {
@@ -43,6 +45,8 @@ h1 {
 #password {
     width: 80%;
     height: 50px;
+    border: none;
+    outline: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,4 +140,49 @@ h1 {
 
 #generate:hover {
     transform: translate(0px, -2px);
+}
+
+.modal-background {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.705);
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 620px;
+    height: 100px;
+    background-color: var(--red);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 20%;
+}
+
+.modal-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#close-icon {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
 }
