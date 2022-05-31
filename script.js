@@ -14,8 +14,6 @@ slider.addEventListener('input', () => passwordLength.innerHTML = slider.value);
 btnGenerate.addEventListener('click', () => checkConditions());
 btnCopy.addEventListener('click', () => copyText());
 
-
-
 function checkConditions() {
     let possibleChars = '';
     let lowercase = document.getElementById('chkLowercase');
@@ -62,7 +60,6 @@ function copyText() {
     navigator.clipboard.writeText(passwordDisplay.innerText);
     btnCopy.style.backgroundColor = 'var(--green)';
     btnCopy.innerText = "Copied";
-
     setTimeout(() => {
         btnCopy.style.backgroundColor = 'var(--purple)';
         btnCopy.innerText = "Copy";
