@@ -7,6 +7,7 @@ let uppercaseChar = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let numbersChar = '1234567890';
 let specialChar = '!@#$%&*+/*_';
 let btnCopy = document.getElementById('copy');
+let password;
 
 slider.value = 6;
 slider.addEventListener('input', () => passwordLength.innerHTML = slider.value);
@@ -47,21 +48,32 @@ function checkConditions() {
 
 function generatePassword(possibleChars) {
     let usableChars = Array.from(possibleChars);
-    let password = '';
-    let random = '';
+    password ='';
+    let random ='';
     for (let i = 0; i < slider.value; i++) {
         random = Math.floor(Math.random() * usableChars.length);
         password = password + usableChars[random];
+        console.log(password);
     }
     passwordDisplay.innerText = password;
 }
 
 function copyText() {
-    navigator.clipboard.writeText(passwordDisplay.innerText);
-    btnCopy.style.backgroundColor = 'var(--green)';
-    btnCopy.innerText = "Copied";
-    setTimeout(() => {
-        btnCopy.style.backgroundColor = 'var(--purple)';
-        btnCopy.innerText = "Copy";
-    }, 1000)
+    if (typeof(password) == 'undefined') {
+        btnCopy.style.backgroundColor = 'var(--red)';
+        btnCopy.innerText = "Empty";
+        setTimeout(() => {
+            btnCopy.style.backgroundColor = 'var(--purple)';
+            btnCopy.innerText = "Copy";
+        }, 1000)
+    }
+    else {
+        navigator.clipboard.writeText(passwordDisplay.innerText);
+        btnCopy.style.backgroundColor = 'var(--green)';
+        btnCopy.innerText = "Copied";
+        setTimeout(() => {
+            btnCopy.style.backgroundColor = 'var(--purple)';
+            btnCopy.innerText = "Copy";
+        }, 1000)
+    }
 }
