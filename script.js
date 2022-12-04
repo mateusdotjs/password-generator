@@ -5,6 +5,7 @@ let passwordLength = document.getElementById('length');
 let lowercaseSet = generateCharacters(97, 122);
 let uppercaseSet = generateCharacters(65, 90);
 let numbersSet = generateCharacters(48, 57);
+
 let specialSet = '!@#$%&*+/*_';
 let btnCopy = document.getElementById('copy');
 let password;
@@ -79,7 +80,7 @@ function copyText() {
 }
 
 function generateCharacters(lowest, highest) {
-    let array;
+    let array = '';
     for (let i = lowest; i < highest; i++) {
         array += String.fromCharCode(i);
     }
