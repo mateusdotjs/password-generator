@@ -2,10 +2,10 @@ let btnGenerate = document.getElementById('generate');
 let passwordDisplay = document.getElementById('password');
 let slider = document.getElementById('range');
 let passwordLength = document.getElementById('length');
-let lowercaseChar = 'abcdefghijklmnopqrstuvwxyz';
-let uppercaseChar = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-let numbersChar = '1234567890';
-let specialChar = '!@#$%&*+/*_';
+let lowercaseSet = 'abcdefghijklmnopqrstuvwxyz';
+let uppercaseSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+let numbersSet = '1234567890';
+let specialSet = '!@#$%&*+/*_';
 let btnCopy = document.getElementById('copy');
 let password;
 
@@ -16,50 +16,50 @@ btnGenerate.addEventListener('click', () => checkConditions());
 btnCopy.addEventListener('click', () => copyText());
 
 function checkConditions() {
-    let possibleChars = '';
     let lowercase = document.getElementById('chkLowercase');
     let uppercase = document.getElementById('chkUppercase');
     let numbers = document.getElementById('chkNumbers');
     let special = document.getElementById('chkSpecial');
 
-    if (lowercase.checked == false && uppercase.checked == false && numbers.checked == false && special.checked == false) {
+    if (!lowercase.checked && !uppercase.checked && !numbers.checked && !special.checked) {
         let modal = document.getElementById('modal');
         let close = document.getElementById('close-icon');
         modal.style.display = 'flex';
         close.addEventListener('click', () => modal.style.display = 'none');
     }
     else {
-        if (lowercase.checked == true) {
-            possibleChars = possibleChars + lowercaseChar;
+        let chars = '';
+
+        if (lowercase.checked) {
+            chars += lowercaseSet;
         }
-        if (uppercase.checked == true) {
-            possibleChars = possibleChars + uppercaseChar;
+        if (uppercase.checked) {
+            chars += uppercaseSet;
         }
-        if (numbers.checked == true) {
-            possibleChars = possibleChars + numbersChar;
+        if (numbers.checked) {
+            chars += numbersSet;
         }
-        if (special.checked == true) {
-            possibleChars = possibleChars + specialChar;
+        if (special.checked) {
+            chars += specialSet;
         }
-        generatePassword(possibleChars);
+        generatePassword(chars);
     }
 
 }
 
-function generatePassword(possibleChars) {
-    let usableChars = Array.from(possibleChars);
-    password ='';
-    let random ='';
+function generatePassword(chars) {
+    let usableChars = Array.from(chars);
+    password = '';
+    let random;
     for (let i = 0; i < slider.value; i++) {
         random = Math.floor(Math.random() * usableChars.length);
         password = password + usableChars[random];
-        console.log(password);
     }
     passwordDisplay.innerText = password;
 }
 
 function copyText() {
-    if (typeof(password) == 'undefined') {
+    if (typeof (password) == 'undefined') {
         btnCopy.style.backgroundColor = 'var(--red)';
         btnCopy.innerText = "Empty";
         setTimeout(() => {
