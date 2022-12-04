@@ -2,9 +2,9 @@ let btnGenerate = document.getElementById('generate');
 let passwordDisplay = document.getElementById('password');
 let slider = document.getElementById('range');
 let passwordLength = document.getElementById('length');
-let lowercaseSet = 'abcdefghijklmnopqrstuvwxyz';
-let uppercaseSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-let numbersSet = '1234567890';
+let lowercaseSet = generateCharacters(97, 122);
+let uppercaseSet = generateCharacters(65, 90);
+let numbersSet = generateCharacters(48, 57);
 let specialSet = '!@#$%&*+/*_';
 let btnCopy = document.getElementById('copy');
 let password;
@@ -76,4 +76,12 @@ function copyText() {
             btnCopy.innerText = "Copy";
         }, 1000)
     }
+}
+
+function generateCharacters(lowest, highest) {
+    let array;
+    for (let i = lowest; i < highest; i++) {
+        array += String.fromCharCode(i);
+    }
+    return array;
 }
